@@ -1,0 +1,21 @@
+name: Validate Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Check script syntax
+        run: |
+          for file in export_model.py quantize_model.py benchmark.py video_inference.py ab_shadow_video.py ota_update.py; do
+            python -m py_compile $file && echo "OK: $file"
+          done
