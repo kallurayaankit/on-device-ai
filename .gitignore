@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+ota_storage/
+*.onnx
+*.onnx.data
+*.pkl
+models/
+model.onnx
