@@ -19,3 +19,17 @@ A complete edge‑AI pipeline that takes a trained model, compresses it with INT
 ---
 
 ## 📁 Project Structure
+on-device-ai/
+├── models/
+│ ├── tiny_detector.onnx # FP32 exported model
+│ └── tiny_detector_int8.onnx # INT8 quantized model
+├── export_model.py # PyTorch → ONNX export script
+├── quantize_model.py # static quantization script
+├── benchmark.py # compare FP32 vs INT8
+├── video_inference.py # real‑time webcam demo (INT8)
+├── ab_shadow_video.py # A/B shadow comparison
+├── ota_update.py # OTA client that checks & downloads new models
+├── ota_storage/ # mock cloud server folder (ignored by Git)
+├── Dockerfile
+├── requirements.txt
+└── README.md
